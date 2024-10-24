@@ -1,14 +1,11 @@
 interface PropsType {
-  name: string;
+  pokemon: {
+    name: string;
+    imgSrc: string;
+  };
 }
 
-function Pokemoncard(props: PropsType) {
-  console.log(props);
-  const pokemon = {
-    name: "bulbasaur",
-    imgSrc:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-  };
+function Pokemoncard({ pokemon }: PropsType) {
   return (
     <figure>
       <figcaption>{pokemon.name}</figcaption>
