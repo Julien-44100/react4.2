@@ -1,6 +1,14 @@
 import PokemonCard from "./PokemonCard";
+import { useState } from "react";
 
 function App() {
+  const [pokemonIndex, setPokemonIndex] = useState(0);
+
+  const handleClick = () => {
+    setPokemonIndex(pokemonIndex);
+    console.log(pokemonList);
+  };
+
   const pokemonList = [
     {
       name: "bulbasaur",
@@ -11,14 +19,18 @@ function App() {
       name: "mew",
     },
   ];
-  const pokemon = pokemonList[0];
+
   return (
     <>
+      <div>
+        <button onClick={handleClick}>{pokemonIndex}précédant</button>
+
+        <button onClick={handleClick}>{pokemonIndex}suivant</button>
+      </div>
       <section>
-        <PokemonCard name={pokemon.name} />
+        <PokemonCard pokemon={pokemonList[1]} />
       </section>
     </>
   );
 }
-
 export default App;
