@@ -4,11 +4,14 @@ import { useState } from "react";
 function App() {
   const [pokemonIndex, setPokemonIndex] = useState(0);
 
-  const handleClick = () => {
-    setPokemonIndex(pokemonIndex);
+  const handleClickInc = () => {
+    setPokemonIndex(pokemonIndex + 1);
     console.log(pokemonList);
   };
-
+  const handleClickDec = () => {
+    setPokemonIndex(pokemonIndex - 1);
+    console.log(pokemonList);
+  };
   const pokemonList = [
     {
       name: "bulbasaur",
@@ -22,13 +25,19 @@ function App() {
 
   return (
     <>
-      <div>
-        <button onClick={handleClick}>{pokemonIndex}précédant</button>
+      {pokemonIndex > 0 ? (
+        <button onClick={handleClickDec}>précédant</button>
+      ) : (
+        <></>
+      )}
+      {pokemonIndex < pokemonList.length - 1 ? (
+        <button onClick={handleClickInc}>suivant</button>
+      ) : (
+        <></>
+      )}
 
-        <button onClick={handleClick}>{pokemonIndex}suivant</button>
-      </div>
       <section>
-        <PokemonCard pokemon={pokemonList[1]} />
+        <PokemonCard pokemon={pokemonList[pokemonIndex]} />
       </section>
     </>
   );
