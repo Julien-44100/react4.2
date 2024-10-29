@@ -1,7 +1,7 @@
 interface PropsType {
   pokemon: {
     name: string;
-    imgSrc: string;
+    imgSrc?: string;
   };
 }
 
