@@ -5,7 +5,7 @@ interface PropsType {
   };
 }
 
-function Pokemoncard({ pokemon }: PropsType) {
+function PokemonCard({ pokemon }: PropsType) {
   return (
     <figure>
       <figcaption>{pokemon.name}</figcaption>
@@ -14,4 +14,4 @@ function Pokemoncard({ pokemon }: PropsType) {
   );
 }
 
-export default Pokemoncard;
+export default PokemonCard;
