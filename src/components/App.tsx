@@ -1,6 +1,7 @@
 import { useState } from "react";
 import PokemonCard from "./PokemonCard.tsx";
 import NavBar from "./NavBar.tsx";
+import { useEffect } from "react";
 
 function App() {
   const pokemonList = [
@@ -34,30 +35,22 @@ function App() {
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png",
     },
   ];
+  useEffect(() => {
+    alert("hello pokemon trainer :)");
+  }, []);
 
   const [pokemonIndex, setPokemonIndex] = useState(0);
-  const handleClickPos = () => {
-    setPokemonIndex(pokemonIndex + 1);
-  };
-
-  const handleClickNeg = () => {
-    setPokemonIndex(pokemonIndex - 1);
-  };
 
   return (
     <>
       <section>
         <div>
-          <NavBar setPokemonIndex={setPokemonIndex} pokemonList={pokemonList} />
-
           <PokemonCard pokemon={pokemonList[pokemonIndex]} />
           <p>{pokemonIndex}</p>
           <NavBar
             pokemonIndex={pokemonIndex}
             setPokemonIndex={setPokemonIndex}
             pokemonList={pokemonList}
-            handleClickNeg={handleClickNeg}
-            handleClickPos={handleClickPos}
           />
         </div>
       </section>
