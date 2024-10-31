@@ -14,6 +14,11 @@ function NavBar({ pokemonIndex, setPokemonIndex, pokemonList }: NavBarProps) {
 
   const next = () => setPokemonIndex(pokemonIndex + 1);
 
+  const pokemon = pokemonList[pokemonIndex];
+  if (pokemon.name === "pikachu") {
+    alert("pika pikachu !!!");
+  }
+
   return (
     <nav>
       {pokemonIndex > 0 ? <button onClick={previous}>Précédant</button> : null}
